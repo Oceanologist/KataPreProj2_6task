@@ -37,4 +37,9 @@ public class Car {
         this.carModel = carModel;
         this.horsePower = horsePower;
     }
+
+    @Override
+    public String toString() {
+        return carBrand + "  " + carModel + "  " + horsePower +"\n";
+    }
 }

@@ -17,6 +17,7 @@ public class Calculator {
             case "division"-> a/b;
            default -> throw new IllegalStateException("Unexpected value: " + action);
        };
+
        model.addAttribute("answer",answer);
        return "calculator";
 
