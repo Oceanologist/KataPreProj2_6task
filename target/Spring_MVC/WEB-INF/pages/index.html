@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru"> <!-- lang="ru" для русского -->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Кодировка UTF-8 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> <!-- Дублируем для надёжности -->
     <title></title>
 </head>
 <body>
@@ -10,6 +10,7 @@
     <th:block th:each="msg : ${messages}">
         <h1 th:text="${msg}"></h1>
     </th:block>
+    <a href="/cars"> к выбору автомобилей</a>
 </div>
 </body>
 </html>

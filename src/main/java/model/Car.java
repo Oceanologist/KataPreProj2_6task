@@ -1,24 +1,24 @@
 package model;
 
 public class Car {
-    private String carBrand;
-    private String carModel;
+    private String brand;
+    private String model;
     private int horsePower;
 
-    public String getCarBrand() {
-        return carBrand;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public String getModel() {
+        return model;
     }
 
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public int getHorsePower() {
@@ -33,13 +33,13 @@ public class Car {
     }
 
     public Car(String carBrand, String carModel, int horsePower) {
-        this.carBrand = carBrand;
-        this.carModel = carModel;
+        this.brand = carBrand;
+        this.model = carModel;
         this.horsePower = horsePower;
     }
 
     @Override
     public String toString() {
-        return carBrand + "  " + carModel + "  " + horsePower +"\n";
+        return brand + "  " + model + "  " + horsePower +"\n";
     }
 }

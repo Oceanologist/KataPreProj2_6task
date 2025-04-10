@@ -5,5 +5,5 @@ import model.Car;
 import java.util.List;
 
 public interface CarDao {
-    List<Car> listUsers();
+    List<Car> listCars();
 }
