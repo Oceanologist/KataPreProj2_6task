@@ -12,7 +12,6 @@
 </div>
 
 <a href="/">На главную</a>
-<table class="table">
     <table class="table table-striped">
         <thead class="table-light">
     <thead>
@@ -31,23 +30,5 @@
     </tbody>
 </table>
 
-    <table class="table">
-        <table class="table table-striped">
-            <thead class="table-light">
-            <thead>
-            <tr>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Power</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="car : ${carMenuList}">
-                <td th:text="${car.brand}"></td>
-                <td th:text="${car.model}"/>
-                <td th:text="${car.horsePower}"/>
-            </tr>
-            </tbody>
-        </table>
 </body>
 </html>

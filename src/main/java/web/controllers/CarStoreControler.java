@@ -1,34 +1,39 @@
 package web.controllers;
 
 import model.Car;
+import org.springframework.web.bind.annotation.PathVariable;
+import web.dao.CarDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/cars")
 public class CarStoreControler {
-    @GetMapping(value = "/cars")
-    public String printMenuCarStore(@RequestParam(value = "count") int count, ModelMap model) {
-        List<Car> carList = new ArrayList<>();
-        List<Car> carMenuList = new ArrayList<>();
-        carList.add(new Car("Toyota", "Camry V6", 301));
-        carList.add(new Car("BMW", "M5 Competition", 625));
-        carList.add(new Car("Ford", "Mustang GT", 450));
-        carList.add(new Car("Mercedes", "E 63 AMG", 613));
-        carList.add(new Car("UAZ", "Patriot", 107));
-        for (int i = 0; i < count; i++) {
-            carMenuList.add(carList.get(i));
 
-        }
-        model.addAttribute("carList", carList);
-        model.addAttribute("carMenuList", carMenuList);
+    private final CarDAOImpl carDAO;
 
-        return "carstore";
+    @Autowired
+    public CarStoreControler(CarDAOImpl carDAO) {
+        this.carDAO = carDAO;
     }
 
+    @GetMapping(value = "")
+    public String printСars(@RequestParam(value = "count", required = false) Integer count, ModelMap model) {
+        List<Car> answer;
+        if (count != null) {
+            answer = carDAO.viewCarList(count);
+        } else {
+            answer = carDAO.viewAllCars();
+        }
+        model.addAttribute(answer);
+        return "carstore";
+    }
 
 }
