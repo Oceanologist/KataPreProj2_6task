@@ -40,6 +40,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return brand + "  " + model + "  " + horsePower +"\n";
+        return brand + "  " + model + "  " + horsePower + "\n";
     }
 }
