@@ -2,31 +2,43 @@ package web.controllers;
 
 import model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import web.service.UserService;
+
+import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/people")
 public class UserControler {
+    private UserService userService;
 
-    @GetMapping(value="/")
-    public String viewAllUsers(){
+    UserControler(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping()
+    public String viewAllUsers(Model model) {
+        model.addAttribute("users", userService.viewAllUsers());
+        return "people/allUsers";
+    }
+
+    @PostMapping(value = "/new")
+    //форма для создания нового юзера
+    public String addUser(User user) {
 
         return null;
     }
-    @PostMapping(value="_______/")
-    public String addUser(User user){
+
+    @PatchMapping("/:id/edit")
+    //форма редактирования записи
+    public String updateUser() {
 
         return null;
     }
-    @GetMapping("/")
-    public String updateUser(){
 
-        return null;
-    }
-    @GetMapping("/")
-    public String deleteUser(){
+    @DeleteMapping("/:id")
+    public String deleteUser() {
 
         return null;
     }
