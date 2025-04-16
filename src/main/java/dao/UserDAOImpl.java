@@ -3,12 +3,14 @@ package dao;
 
 import jakarta.persistence.*;
 
+import jakarta.transaction.Transactional;
 import model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
